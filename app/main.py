@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.api import chat
 
 app = FastAPI(
     title="Self-Reflective RAG API",
@@ -19,3 +20,5 @@ async def health_check():
     return {"status": "Online",
             "message": "API is ready"
             }
+
+app.include_router(chat.router, prefix="/api", tags=["Chat"])
