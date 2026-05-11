@@ -13,7 +13,6 @@
 * **Sync vs Async in FastAPI:** Learned the crucial difference between `async def` (for I/O-bound tasks like API calls) and standard `def` (for CPU-bound tasks like FAISS mathematical searches). Using standard `def` for FAISS in FastAPI ensures it runs in a separate threadpool, preventing it from blocking the main asynchronous event loop.
 
 ## Phase 1: FastAPI Foundation & Server Initialization
-**Date:** [Insert Today's Date]
 
 ### Actions Taken
 * Created the entry point for the application (`app/main.py`).
@@ -24,3 +23,16 @@
 
 ### Key Learnings
 * **CORS:** Cross-Origin Resource Sharing is a critical security feature in browsers. Configuring it explicitly on the backend is mandatory for a decoupled React frontend to communicate with the API.
+
+## Phase 1: Configuration, Data Schemas, and API Contract
+
+### Actions Taken
+* Implemented a secure configuration management system using `pydantic-settings` to load environment variables from a `.env` file.
+* Defined strict data models using Pydantic `BaseModel` to enforce the "API Contract" (ensuring input and output data structures are always valid).
+* Created a modular `APIRouter` for chat operations and integrated it into the main FastAPI application.
+* Built a placeholder `/api/ask` endpoint that successfully simulates the heuristic-based RAG response.
+
+### Key Learnings
+* **Pydantic Validation:** Learned how `Field` and type hints in Pydantic prevent "garbage in, garbage out" by automatically validating request bodies.
+* **Environment Management:** Separating secrets (API keys) from code using `.env` and a settings singleton is essential for production security.
+* **Modular Routing:** Using `app.include_router` allows the application to stay organized as it grows, separating the server startup logic from specific business features like "Chat."
