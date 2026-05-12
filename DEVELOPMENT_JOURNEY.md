@@ -76,3 +76,16 @@
 ### Key Learnings
 * **Transitive Dependencies:** Learned that pinning top-level libraries isn't always enough; sub-dependencies (like `httpx` inside `groq`) can break builds if their APIs change.
 * **Model Lifecycles:** AI models deprecate rapidly. Staying aware of provider updates (like Groq's shift to Llama 3.1) is a mandatory maintenance task for AI Engineers.
+
+## Phase 3: System Integration & Data Persistence
+
+### Actions Taken
+* Upgraded the `VectorService` to support persistent storage, saving the FAISS index (`.faiss`) and chunk metadata (`.json`) directly to the disk.
+* Leveraged FastAPI's `@asynccontextmanager` `lifespan` event to execute database loading/ingestion automatically during server boot-up.
+* Wired the Vector Database, Heuristic Engine, and Groq LLM together inside the `/api/ask` endpoint.
+* Implemented the "Self-Healing Loop": The endpoint dynamically checks the heuristic risk score and autonomously expands the `top_k` search parameters if the risk exceeds the configured threshold.
+* Successfully executed an end-to-end integration test via cURL, achieving a highly performant sub-700ms response time.
+
+### Key Learnings
+* **State Persistence:** In-memory databases are volatile. Writing state to disk and loading it during the application's lifespan is mandatory to prevent massive cold-start delays.
+* **Orchestration:** Learned how to seamlessly chain I/O-bound tasks (LLM calls), CPU-bound tasks (FAISS), and synchronous logic (Heuristics) together within a single asynchronous API route without blocking the event loop.
