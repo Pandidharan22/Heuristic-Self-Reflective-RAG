@@ -62,3 +62,17 @@
 ### Key Learnings
 * **Separation of Concerns:** By isolating the math logic into its own service class, we made the code highly testable without needing to boot up the entire FastAPI server or make expensive calls to the vector database.
 * **Deterministic Guardrails:** Proved that heuristic bounds mathematically prevent edge cases (like negative risks or risks > 1.0) from breaking the pipeline.
+
+## Phase 2: LLM Service & Groq Integration
+
+### Actions Taken
+* Created `app/services/llm_service.py` to handle communication with the LLM.
+* Integrated the `groq` async SDK to leverage LPU (Language Processing Unit) hardware for ultra-fast text generation.
+* Resolved a transitive dependency conflict by pinning `httpx==0.27.2`.
+* Migrated from the deprecated `llama3-8b-8192` model to the industry-current `llama-3.1-8b-instant` model.
+* Engineered a strict System Prompt forcing the LLM to rely *only* on provided context and to refuse answers when context is lacking.
+* Successfully tested the asynchronous generation using a dummy context vector.
+
+### Key Learnings
+* **Transitive Dependencies:** Learned that pinning top-level libraries isn't always enough; sub-dependencies (like `httpx` inside `groq`) can break builds if their APIs change.
+* **Model Lifecycles:** AI models deprecate rapidly. Staying aware of provider updates (like Groq's shift to Llama 3.1) is a mandatory maintenance task for AI Engineers.
