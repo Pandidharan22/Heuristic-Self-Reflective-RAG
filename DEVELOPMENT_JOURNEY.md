@@ -38,7 +38,6 @@
 * **Modular Routing:** Using `app.include_router` allows the application to stay organized as it grows, separating the server startup logic from specific business features like "Chat."
 
 ## Phase 2: Vector Service & PyMuPDF Integration
-**Date:** May 12, 2026
 
 ### Actions Taken
 * Downgraded NumPy to `<2.0.0` in `requirements.txt` to resolve a C-API compilation conflict with the `faiss-cpu` library.
