@@ -101,3 +101,14 @@
 ### Key Learnings
 * **Package Management Efficiency:** Standard `npm` duplicates dependencies across projects. `pnpm` solves this architectural inefficiency, which is a crucial workflow upgrade for Full Stack developers.
 * **Vite vs Create React App:** Vite relies on native ES modules, making server start times and file updates nearly instantaneous compared to legacy Webpack-based bundlers.
+
+## Phase 4: UI Styling & Tailwind v4 Integration
+
+### Actions Taken
+* Integrated Tailwind CSS v4 using the modern Vite plugin approach (`@tailwindcss/vite`), bypassing legacy PostCSS configurations.
+* Architected a dual-pane React interface (`App.jsx`) featuring a RAG Observability sidebar and a main chat dialogue window.
+* Utilized utility-first CSS classes to rapidly build a responsive, clean, and professional UI skeleton without writing custom CSS files.
+
+### Key Learnings
+* **Frontend Ecosystem Velocity:** Discovered firsthand how rapidly tooling evolves (the shift from Tailwind v3 to v4). Adapting to new documentation and plugin-based architectures is a core skill for modern Full Stack engineers.
+* **Component Layouts:** Mastered the use of CSS Flexbox via Tailwind (`flex`, `flex-col`, `flex-1`) to create standard application layouts (fixed sidebars with scrollable main content areas).
