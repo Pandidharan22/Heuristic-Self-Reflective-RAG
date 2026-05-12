@@ -112,3 +112,16 @@
 ### Key Learnings
 * **Frontend Ecosystem Velocity:** Discovered firsthand how rapidly tooling evolves (the shift from Tailwind v3 to v4). Adapting to new documentation and plugin-based architectures is a core skill for modern Full Stack engineers.
 * **Component Layouts:** Mastered the use of CSS Flexbox via Tailwind (`flex`, `flex-col`, `flex-1`) to create standard application layouts (fixed sidebars with scrollable main content areas).
+
+## Phase 4: Frontend API Integration & State Management
+
+### Actions Taken
+* Implemented React state management (`useState`, `useEffect`) to handle chat history, loading states, and dynamic telemetry data.
+* Integrated `axios` to handle asynchronous POST requests from the React frontend to the FastAPI `/api/ask` endpoint.
+* Built an auto-scrolling chat window using `useRef` to ensure the newest messages are always visible.
+* Mapped the backend's `HeuristicMetrics` response to a live, color-coded observability dashboard, providing real-time visual feedback on system confidence, hallucination risk, latency, and self-healing triggers.
+* Refined the UI UX by explicitly listing the loaded documents in the initial system greeting.
+
+### Key Learnings
+* **Full Stack Wiring:** Mastered the pattern of sending user input from a React component, awaiting a FastAPI response, and updating multiple disparate UI components (chat logs and metric dashboards) from a single JSON payload.
+* **UX/UI for AI:** Realized that exposing "under the hood" metrics (latency, risk scores) builds user trust and turns a standard chatbot into a professional LLMOps observability platform.
