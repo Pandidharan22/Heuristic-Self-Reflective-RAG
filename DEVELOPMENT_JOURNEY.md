@@ -89,3 +89,15 @@
 ### Key Learnings
 * **State Persistence:** In-memory databases are volatile. Writing state to disk and loading it during the application's lifespan is mandatory to prevent massive cold-start delays.
 * **Orchestration:** Learned how to seamlessly chain I/O-bound tasks (LLM calls), CPU-bound tasks (FAISS), and synchronous logic (Heuristics) together within a single asynchronous API route without blocking the event loop.
+
+## Phase 4: Frontend Bootstrapping & Optimization
+
+### Actions Taken
+* Migrated package management from standard `npm` to `pnpm` to optimize disk space usage via global store hard-linking and to drastically improve installation speeds.
+* Bootstrapped a modern React application using Vite (`pnpm create vite`), establishing a lightning-fast Hot Module Replacement (HMR) development environment.
+* Installed core frontend dependencies: `axios` for asynchronous HTTP requests to the FastAPI backend, and `lucide-react` for professional, scalable SVG iconography.
+* Updated the root `.gitignore` to secure frontend environments and prevent the `node_modules` folder from bloating the source control repository.
+
+### Key Learnings
+* **Package Management Efficiency:** Standard `npm` duplicates dependencies across projects. `pnpm` solves this architectural inefficiency, which is a crucial workflow upgrade for Full Stack developers.
+* **Vite vs Create React App:** Vite relies on native ES modules, making server start times and file updates nearly instantaneous compared to legacy Webpack-based bundlers.
