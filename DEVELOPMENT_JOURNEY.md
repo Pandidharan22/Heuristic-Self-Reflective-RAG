@@ -50,3 +50,15 @@
 ### Key Learnings
 * **Dependency Hell:** Learned that major version bumps in low-level libraries (like NumPy 2.0) can break pre-compiled C++ libraries (like FAISS). Pinning dependency versions in `requirements.txt` is critical for stability.
 * **Threadpooling in AsyncIO:** Reconfirmed the pattern of using `asyncio.to_thread()` to safely execute heavy mathematical operations in an asynchronous web framework.
+
+## Phase 2: Heuristic Guardrail Engine
+
+### Actions Taken
+* Implemented the `HeuristicEngine` service (`app/services/heuristic_engine.py`).
+* Translated the theoretical math formula (mean similarity, score spread, quadratic base risk, and proportional penalties) into a robust, testable Python class.
+* Integrated the environment configuration to allow dynamic tuning of the `HEURISTIC_THRESHOLD`.
+* Successfully unit-tested the engine against "Good Retrieval" and "Bad Retrieval" scenarios, verifying that it correctly bounds risks between 0 and 1, and accurately triggers the self-healing flag when risk exceeds the threshold.
+
+### Key Learnings
+* **Separation of Concerns:** By isolating the math logic into its own service class, we made the code highly testable without needing to boot up the entire FastAPI server or make expensive calls to the vector database.
+* **Deterministic Guardrails:** Proved that heuristic bounds mathematically prevent edge cases (like negative risks or risks > 1.0) from breaking the pipeline.
