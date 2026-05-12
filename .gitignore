@@ -23,3 +23,13 @@ Thumbs.db
 app/data/vector_store/
 *.faiss
 *.jsonl
+
+# Node & Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
