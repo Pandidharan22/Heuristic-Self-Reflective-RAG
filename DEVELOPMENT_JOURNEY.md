@@ -36,3 +36,18 @@
 * **Pydantic Validation:** Learned how `Field` and type hints in Pydantic prevent "garbage in, garbage out" by automatically validating request bodies.
 * **Environment Management:** Separating secrets (API keys) from code using `.env` and a settings singleton is essential for production security.
 * **Modular Routing:** Using `app.include_router` allows the application to stay organized as it grows, separating the server startup logic from specific business features like "Chat."
+
+## Phase 2: Vector Service & PyMuPDF Integration
+**Date:** May 12, 2026
+
+### Actions Taken
+* Downgraded NumPy to `<2.0.0` in `requirements.txt` to resolve a C-API compilation conflict with the `faiss-cpu` library.
+* Implemented `app/services/vector_service.py` as a Singleton class to hold the FAISS index and embedding model in memory.
+* Integrated `PyMuPDF` (`fitz`) for rapid extraction of text from PDF documents.
+* Built the text chunking and embedding pipeline using `sentence-transformers` (`all-MiniLM-L6-v2`).
+* Wrapped the synchronous, CPU-bound FAISS `.search()` method in an asynchronous `asyncio.to_thread()` wrapper to ensure the FastAPI event loop remains unblocked during heavy vector calculations.
+* Successfully ingested "Attention Is All You Need.pdf" and performed a vector similarity search.
+
+### Key Learnings
+* **Dependency Hell:** Learned that major version bumps in low-level libraries (like NumPy 2.0) can break pre-compiled C++ libraries (like FAISS). Pinning dependency versions in `requirements.txt` is critical for stability.
+* **Threadpooling in AsyncIO:** Reconfirmed the pattern of using `asyncio.to_thread()` to safely execute heavy mathematical operations in an asynchronous web framework.
