@@ -125,3 +125,15 @@
 ### Key Learnings
 * **Full Stack Wiring:** Mastered the pattern of sending user input from a React component, awaiting a FastAPI response, and updating multiple disparate UI components (chat logs and metric dashboards) from a single JSON payload.
 * **UX/UI for AI:** Realized that exposing "under the hood" metrics (latency, risk scores) builds user trust and turns a standard chatbot into a professional LLMOps observability platform.
+
+## Phase 5: Automated Benchmarking & Production Polish
+
+### Actions Taken
+* Developed an automated benchmarking suite (`scripts/benchmark.py`) utilizing `httpx` and `asyncio` to rigorously test the RAG pipeline against adversarial and out-of-domain queries.
+* Validated the Heuristic Guardrails in a simulated production environment. The system successfully discriminated between valid context and hallucination traps (e.g., out-of-domain prompts).
+* Proved the efficacy of the Self-Healing Loop: The system correctly flagged garbage vector retrievals as "High Risk," expanded the search context dynamically, and successfully enforced strict refusal protocols when sufficient information was absent.
+* Achieved sub-second end-to-end latency across all queries, validating the choice of FastAPI, threaded FAISS execution, and Groq LPU inference.
+
+### Key Learnings
+* **Scientific Evaluation:** True AI Engineering goes beyond building the app; it requires empirical proof that the guardrails work. Benchmarking scripts separate student projects from industry-grade portfolios.
+* **The "Zero Hallucination" Standard:** By combining mathematical heuristics (risk bounds) with prompt engineering (refusal phrases), we built a highly deterministic system out of non-deterministic LLMs.
