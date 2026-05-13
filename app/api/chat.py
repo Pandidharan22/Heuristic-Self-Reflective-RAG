@@ -47,3 +47,27 @@ async def ask_question(request: QueryRequest):
         retrieved_chunks=chunks,
         latency_ms=latency_ms
     )
+
+@router.post("/ask_naive")
+async def ask_question_naive(request: QueryRequest):
+    """The Control Group: Standard RAG without self-healing or heuristics."""
+    start_time = time.time()
+    
+    # 1. Blind Retrieval (Always takes exactly what FAISS gives it)
+    chunks, scores = await vector_service.search(request.query, request.top_k)
+    
+    # 2. Blind Generation
+    if not chunks:
+        answer = "I don't have sufficient information in the provided documents."
+    else:
+        answer = await llm_service.generate_response(request.query, chunks)
+    
+    latency_ms = round((time.time() - start_time) * 1000, 2)
+    
+    # We return empty metrics since Naive RAG doesn't calculate them
+    from app.models.schemas import HeuristicMetrics
+    dummy_metrics = HeuristicMetrics(
+        confidence_score=0.0, score_spread=0.0, base_risk=0.0, final_risk=0.0, self_healing_triggered=False
+    )
+    
+    return RAGResponse(answer=answer, metrics=dummy_metrics, retrieved_chunks=chunks, latency_ms=latency_ms)

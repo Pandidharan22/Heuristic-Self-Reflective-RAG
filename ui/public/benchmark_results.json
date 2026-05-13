@@ -1,0 +1,769 @@
+{
+  "stats": {
+    "avg_latency_naive": 3744.86,
+    "avg_latency_heuristic": 5679.31,
+    "naive": {
+      "total_latency": 187243.13000000003,
+      "hallucinations": 1,
+      "successful_refusals": 14
+    },
+    "heuristic": {
+      "total_latency": 283965.29000000004,
+      "hallucinations": 2,
+      "successful_refusals": 13,
+      "self_healing_triggers": 17
+    }
+  },
+  "results": [
+    {
+      "id": 1,
+      "query": "What is the Transformer architecture?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 426.55,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 468.05,
+        "healed": false,
+        "risk": 0.5489,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 2,
+      "query": "What does the encoder in a Transformer do?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 515.95,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 314.66,
+        "healed": false,
+        "risk": 0.5617,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 3,
+      "query": "How many layers are in the encoder of the base Transformer?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 308.42,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 292.01,
+        "healed": false,
+        "risk": 0.5695,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 4,
+      "query": "What is the formula for scaled dot-product attention?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 364.94,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 396.59,
+        "healed": false,
+        "risk": 0.3526,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 5,
+      "query": "Why do the authors scale the dot products by the square root of d_k?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 252.17,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 273.46,
+        "healed": false,
+        "risk": 0.566,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 6,
+      "query": "What is multi-head attention?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 252.17,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 192.91,
+        "healed": false,
+        "risk": 0.4523,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 7,
+      "query": "What optimizer was used to train the Transformer?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 211.64,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 3360.0,
+        "healed": false,
+        "risk": 0.5809,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 8,
+      "query": "What was the dropout rate used for the base Transformer model?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 4322.88,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 5277.82,
+        "healed": false,
+        "risk": 0.4355,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 9,
+      "query": "What is the BLEU score achieved by the big Transformer model on English-to-German?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 3362.0,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 5582.74,
+        "healed": false,
+        "risk": 0.3334,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 10,
+      "query": "Does the Transformer use recurrent neural networks (RNNs)?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 3378.78,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 4486.66,
+        "healed": false,
+        "risk": 0.487,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 11,
+      "query": "What is the main thesis of the Sparks of AGI paper?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 4353.4,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 4409.56,
+        "healed": false,
+        "risk": 0.6526,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 12,
+      "query": "What version of GPT does the Sparks of AGI paper evaluate?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 4395.15,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 4606.95,
+        "healed": false,
+        "risk": 0.4808,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 13,
+      "query": "According to the AGI paper, does GPT-4 have a theory of mind?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 3315.64,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 5485.73,
+        "healed": false,
+        "risk": 0.4084,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 14,
+      "query": "Can GPT-4 use external tools like calculators according to the paper?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 4625.15,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 5295.02,
+        "healed": false,
+        "risk": 0.4555,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 15,
+      "query": "Does GPT-4 demonstrate human-level performance on standardized tests?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 4458.27,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 5445.92,
+        "healed": false,
+        "risk": 0.4413,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 16,
+      "query": "How does GPT-4 perform on LeetCode software engineering challenges?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 4782.74,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 5534.55,
+        "healed": false,
+        "risk": 0.3418,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 17,
+      "query": "What does the AGI paper say about GPT-4's ability to draw SVGs?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 5288.69,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 5395.5,
+        "healed": false,
+        "risk": 0.466,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 18,
+      "query": "What is an autoregressive model?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 3421.54,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 4458.67,
+        "healed": false,
+        "risk": 0.5429,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 19,
+      "query": "What hardware was used to train the original Transformer?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 4575.05,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 10385.79,
+        "healed": true,
+        "risk": 0.695,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 20,
+      "query": "What does positional encoding do in the Transformer?",
+      "type": "in_domain_easy",
+      "naive": {
+        "latency": 3620.12,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 5437.7,
+        "healed": false,
+        "risk": 0.4975,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 21,
+      "query": "Explain mathematically how Multi-Head Attention improves over Single-Head Attention.",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 3883.01,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 8881.65,
+        "healed": false,
+        "risk": 0.4498,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 22,
+      "query": "Compare the computational complexity per layer of self-attention versus recurrent layers.",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 3305.71,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 6486.61,
+        "healed": false,
+        "risk": 0.3672,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 23,
+      "query": "Why is ByteNet mentioned in the Attention is All You Need paper?",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 7414.92,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 8474.79,
+        "healed": true,
+        "risk": 0.7992,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 24,
+      "query": "How does label smoothing affect the Transformer's perplexity and BLEU score?",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 5337.6,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 3372.4,
+        "healed": false,
+        "risk": 0.5516,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 25,
+      "query": "What specific tasks were used to prove GPT-4's theory of mind in the AGI paper?",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 5445.07,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 3560.44,
+        "healed": false,
+        "risk": 0.4261,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 26,
+      "query": "What are the core limitations of GPT-4 mentioned in the Sparks of AGI paper?",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 6454.08,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 6473.53,
+        "healed": false,
+        "risk": 0.3714,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 27,
+      "query": "How does the Transformer handle sequences longer than its training length?",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 4264.76,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 4265.97,
+        "healed": false,
+        "risk": 0.5638,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 28,
+      "query": "Explain the concept of 'hindsight bias' as evaluated in GPT-4.",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 3459.67,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 4327.06,
+        "healed": false,
+        "risk": 0.5436,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 29,
+      "query": "What is the exact dimensionality (d_model) of the base and big Transformer models?",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 7337.05,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 5338.73,
+        "healed": false,
+        "risk": 0.658,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 30,
+      "query": "How does GPT-4 integrate vision with text generation?",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 3553.68,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 4556.64,
+        "healed": false,
+        "risk": 0.4587,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 31,
+      "query": "Analyze the difference between self-attention and cross-attention in the decoder.",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 5383.18,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 2313.63,
+        "healed": false,
+        "risk": 0.5121,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 32,
+      "query": "What are the specific parameters of the Adam optimizer used in the Attention paper?",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 6471.59,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 5304.36,
+        "healed": false,
+        "risk": 0.616,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 33,
+      "query": "How does GPT-4 perform on mathematical reasoning compared to its coding ability?",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 1391.35,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 5335.78,
+        "healed": false,
+        "risk": 0.2959,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 34,
+      "query": "Explain the training schedule (warmup steps) used for the Transformer.",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 6585.91,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 4376.48,
+        "healed": false,
+        "risk": 0.5584,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 35,
+      "query": "What evidence does the AGI paper provide that GPT-4 can plan ahead?",
+      "type": "in_domain_hard",
+      "naive": {
+        "latency": 4498.16,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 2308.82,
+        "healed": false,
+        "risk": 0.3482,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 36,
+      "query": "Who is the current CEO of Apple?",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 7365.59,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 6395.7,
+        "healed": true,
+        "risk": 0.9008,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 37,
+      "query": "Give me a recipe for chocolate chip cookies.",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 6333.57,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 7335.29,
+        "healed": true,
+        "risk": 0.7925,
+        "hallucinated": true
+      }
+    },
+    {
+      "id": 38,
+      "query": "What is the capital of France?",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 217.45,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 5286.6,
+        "healed": true,
+        "risk": 0.9728,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 39,
+      "query": "Write a React component for a to-do list.",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 4241.23,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 6421.06,
+        "healed": true,
+        "risk": 0.8789,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 40,
+      "query": "Who won the Super Bowl in 2024?",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 5369.14,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 12608.09,
+        "healed": true,
+        "risk": 0.9327,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 41,
+      "query": "How do you change a tire on a Honda Civic?",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 1288.86,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 11304.99,
+        "healed": true,
+        "risk": 1.0,
+        "hallucinated": true
+      }
+    },
+    {
+      "id": 42,
+      "query": "What is the weather like in London today?",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 199.39,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 6667.68,
+        "healed": true,
+        "risk": 0.9346,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 43,
+      "query": "Write a poem about a lonely robot.",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 1837.07,
+        "hallucinated": true
+      },
+      "heuristic": {
+        "latency": 10478.32,
+        "healed": true,
+        "risk": 0.7143,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 44,
+      "query": "Explain the plot of the movie Inception.",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 5278.06,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 8385.96,
+        "healed": true,
+        "risk": 0.7323,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 45,
+      "query": "What is the current stock price of Tesla?",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 3295.08,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 9382.66,
+        "healed": true,
+        "risk": 0.7051,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 46,
+      "query": "Translate 'Hello world' into Japanese.",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 4356.8,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 10528.06,
+        "healed": true,
+        "risk": 0.9059,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 47,
+      "query": "How do you cure a common cold?",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 4377.0,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 8407.25,
+        "healed": true,
+        "risk": 0.7771,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 48,
+      "query": "What are the rules of chess?",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 3247.03,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 9514.8,
+        "healed": true,
+        "risk": 0.7727,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 49,
+      "query": "Write a SQL query to join two tables.",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 4535.6,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 9388.77,
+        "healed": true,
+        "risk": 0.9348,
+        "hallucinated": false
+      }
+    },
+    {
+      "id": 50,
+      "query": "What is the difference between a crocodile and an alligator?",
+      "type": "out_of_domain",
+      "naive": {
+        "latency": 4284.27,
+        "hallucinated": false
+      },
+      "heuristic": {
+        "latency": 9382.88,
+        "healed": true,
+        "risk": 0.8612,
+        "hallucinated": false
+      }
+    }
+  ]
+}
