@@ -137,3 +137,16 @@
 ### Key Learnings
 * **Scientific Evaluation:** True AI Engineering goes beyond building the app; it requires empirical proof that the guardrails work. Benchmarking scripts separate student projects from industry-grade portfolios.
 * **The "Zero Hallucination" Standard:** By combining mathematical heuristics (risk bounds) with prompt engineering (refusal phrases), we built a highly deterministic system out of non-deterministic LLMs.
+
+## Phase 6: Benchmark Analytics Dashboard & Terminology Pivot
+
+### Actions Taken
+* Integrated the automated benchmark results (`benchmark_results.json`) into the React frontend.
+* Built a dedicated, toggleable "Benchmark Report" dashboard using Tailwind v4 to visualize the A/B test results between Naive RAG and Self-Reflective RAG.
+* Rendered key metrics including Average Latency, OOD Hallucinations, and Guardrail Activations alongside a data table of raw query logs.
+* Executed a project-wide terminology pivot, shifting from "Self-Healing" to "Self-Reflective RAG." This aligns the project's nomenclature with accurate industry standards for agentic, critique-and-revise retrieval systems.
+
+### Key Learnings
+* **Data-Driven Insights:** The benchmark revealed a critical insight—while Heuristic Guardrails effectively flag bad context, expanding the `top_k` (context expansion) on purely Out-of-Domain queries introduces noise that can override strong system prompts. Naive RAG with a strict prompt actually refused OOD queries slightly better.
+* **Architecture Evolution:** Proved that future iterations should distinguish between "In-Domain Low Confidence" (where context expansion works) and "Out-of-Domain" (where immediate refusal is safer than context expansion).
+* **Nomenclature Matters:** Accurately naming architectural patterns (Self-Reflection vs. Self-Healing) is crucial for communicating system design to senior engineers and stakeholders.
