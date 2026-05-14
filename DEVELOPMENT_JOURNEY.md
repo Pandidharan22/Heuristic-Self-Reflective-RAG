@@ -150,3 +150,17 @@
 * **Data-Driven Insights:** The benchmark revealed a critical insight—while Heuristic Guardrails effectively flag bad context, expanding the `top_k` (context expansion) on purely Out-of-Domain queries introduces noise that can override strong system prompts. Naive RAG with a strict prompt actually refused OOD queries slightly better.
 * **Architecture Evolution:** Proved that future iterations should distinguish between "In-Domain Low Confidence" (where context expansion works) and "Out-of-Domain" (where immediate refusal is safer than context expansion).
 * **Nomenclature Matters:** Accurately naming architectural patterns (Self-Reflection vs. Self-Healing) is crucial for communicating system design to senior engineers and stakeholders.
+
+## Phase 7: Containerization & Zero Trust Deployment (Project Nexus)
+
+### Actions Taken
+* Engineered production-grade Dockerfiles for both the FastAPI backend and the React frontend.
+* Optimized the Python backend build process by explicitly forcing the installation of CPU-only PyTorch binaries, drastically reducing the container image footprint from over 4GB to under 500MB and preventing CUDA driver bloat.
+* Implemented a multi-stage Docker build for the Vite frontend, utilizing an Nginx alpine container to serve the static assets and reverse-proxy `/api` requests to the internal backend container.
+* Orchestrated the multi-container architecture using `docker-compose.yml`, establishing persistent volume mounts for the FAISS index and raw PDF ingestion directories.
+* Integrated the application into the existing "Project Nexus" homelab network.
+* Deployed secure public ingress via Cloudflare Tunnels (Zero Trust), mapping the public hostname `self-reflective-rag.pandidharan.dev` directly to the Nginx container's internal Docker DNS (`nexus-rag-frontend:80`), completely avoiding local port forwarding.
+
+### Key Learnings
+* **Dependency Auditing:** Unpinned machine learning libraries (like `sentence-transformers`) will aggressively default to GPU-heavy dependencies. Explicitly managing index URLs for PyTorch is a mandatory practice for CPU-bound microservices.
+* **Docker Networking:** Discovered the critical difference between `localhost` on a host machine versus `localhost` within a containerized network. Leveraging Docker's internal DNS (referencing container names) is essential for stable communication between Cloudflare tunnel daemons and isolated application containers.
