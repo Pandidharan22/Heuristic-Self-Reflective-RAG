@@ -95,3 +95,16 @@ This application is designed for containerized deployment within a Linux or Wind
    ```env
    GROQ_API_KEY=your_production_key_here
    HEURISTIC_THRESHOLD=0.70
+   ```
+3. Place target PDF documents inside the `app/data/raw/` directory for automated ingestion.
+
+4. Execute the build and deployment pipeline:
+    ```
+    docker compose up -d --build
+    ```
+### Networking Route
+The `docker-compose.yml` file provisions two containers (`rag-backend` and `rag-frontend`). The frontend utilizes an Nginx configuration that serves the static React build on port 80 while automatically reverse-proxying all `/api/` traffic to the isolated backend container. Public internet exposure is managed by attaching the frontend container to an external Cloudflare `cloudflared` daemon network.
+
+---
+
+Architected and Developed by Pandidharan G.R.
