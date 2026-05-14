@@ -19,3 +19,8 @@ services:
     depends_on:
       - rag-backend
     restart: unless-stopped
+
+networks:
+  default:
+    name: nexus---personal-cloud-and-automated-portfolio-homelab_default
+    external: true
