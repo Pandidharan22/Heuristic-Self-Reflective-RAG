@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  rag-backend:
+    build: .
+    container_name: nexus-rag-backend
+    env_file: .env
+    # Mount volumes so your vector store persists even if the container restarts
+    volumes:
+      - ./app/data/vector_store:/app/app/data/vector_store
+      - ./app/data/raw:/app/app/data/raw
+    restart: unless-stopped
+
+  rag-frontend:
+    build: ./ui
+    container_name: nexus-rag-frontend
+    ports:
+      - "3050:80" # Maps port 3050 on your Windows laptop to port 80 in the container
+    depends_on:
+      - rag-backend
+    restart: unless-stopped

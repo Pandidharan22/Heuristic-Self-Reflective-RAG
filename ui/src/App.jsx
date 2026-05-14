@@ -38,7 +38,7 @@ function App() {
     setIsLoading(true)
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/ask', {
+      const response = await axios.post('/api/ask', {
         query: userMsg.content,
         top_k: 3 
       })
